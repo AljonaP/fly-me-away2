@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Mohave&family=Rubik:wght@300;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Mohave&family=Paprika&family=Rubik:wght@300;500;600&display=swap');
+
+nav {
+    background-color: #507AAB;
+
+    display: flex;
+    padding: 0 32px;
+    align-items: center;
+    justify-content: space-between;
+    color: #DAEBEC;
+    position: sticky;
+    top: 0;
+    overflow: auto;
+}
+
+.language-currency {
+    display: flex;
+    height: 50px;
+}
+
+.currency {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.button-topmenu:hover {
+    background-color: #DAEBEC;
+    border: 2px outset #d9d9d9;
+    color: #507AAB;
+    border-radius: 3px;
+}
+
+.button-topmenu:hover {
+    box-shadow: 2px 2px #595959;
+    margin: -5px;
+}
+
+.button-topmenu {
+    background-color: #507AAB;
+    color: #DAEBEC;
+    font-family: 'Patua One', cursive;
+    font-size: 28px;
+    margin: 4px;
+    border: none;
+
+}
+
+

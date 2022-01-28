@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Paprika&family=Patua+One&display=swap');
+/*POKEMON*/
+/*footer {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    align-items: center;*/
+/*    justify-content: space-around;*/
+
+/*}*/
+
+/*ALJONA footer {*/
+/*display: flex;*/
+/*justify-content: space-between;*/
+/*background-color: #F0DDB4;*/
+/*height: 173px;*/
+/*width: 100%;*/
+/*font-size: 12px;*/
+/*font-family: Patua One, sans-serif;*/
+/*bottom: 0;*/
+/*position: absolute;*/
+/*}*/
+
+
+footer {
+    display: grid;
+    padding: 10px;
+    grid-gap: 16px;
+    font-family: Patua One, sans-serif;
+    font-size: 12px;
+    height: 173px;
+    background-color: #F0DDB4;
+    width: 100%;
+    /*position: fixed;*/
+    position: static;
+    bottom: 0;
+
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-areas:
+    "a a a";
+}
+
+footer input[type=text] {
+    padding: 2px 4px;
+    margin: 5px 0 5px;
+    width: 70%;
+    font-size: 16px;
+    outline: none;
+    border-color: grey;
+}
+
+footer input[type=email] {
+    padding: 2px 4px;
+    margin: 5px 0 5px;
+    width: 70%;
+    font-size: 16px;
+    outline: none;
+    border-color: grey;
+}
+
+footer input[type=text].input-error {
+    border: 1px solid #FF0000;
+}
+
+footer input[type=email].input-error {
+    border: 1px solid #FF0000;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+textarea:focus,
+button:focus {
+    /*outline: none;*/
+    border-color: #000000;
+}
+
+
+footer button{
+    margin-top: 4px;
+    background-color: #DAEBEC;
+    color: #000000;
+}
+
+/*footer button:disabled {*/
+/*    background-color: #ededed;*/
+/*    color: gray;*/
+/*}*/
+
+textarea {
+    display: block;
+    font-size: 16px;
+    margin-top: 5px;
+    height: 61px;
+    width: 88%;
+}
+
+input,button {
+    border: 1px solid #808080;
+}
+
+#terms-conditions {
+    text-align: center;
+}
+
+.contact-form,address {
+    text-align: left;
+    padding-left: 30px;
+}
+
+a:link {
+    color: #507AAB;
+}
+
+a:hover {
+    color:#1EFBD3;
+
+}
+
+a:visited {
+    color: #507AAB;
+}
+
+
+@media scree nad (max-width: 576px) {
+    footer {
+        grid-template-columns:
+    }
+}

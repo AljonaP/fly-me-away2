@@ -1,0 +1,55 @@
+/*.ticket-container {*/
+
+/*    display: grid;*/
+/*    padding: 30px;*/
+/*    margin: 20px;*/
+/*    grid-gap: 16px;*/
+
+/*    grid-template-columns: repeat(5, 1fr);*/
+/*    grid-template-areas:*/
+/*    "a a a a a"*/
+/*    "b b b b b"*/
+/*    "c c c c c"*/
+/*    "d d d d d";*/
+/*}*/
+
+h1,h2 {
+    font-family: Patua One, sans-serif;
+    font-size: 1.625em;
+    color: #000000;
+    text-decoration: none;
+}
+
+/*.ticket-container {*/
+/*    flex-direction: row;*/
+/*}*/
+
+#choose-stopovers {
+    height: 44px;
+    border: none;
+    overflow: hidden;
+}
+
+#choose-stopovers option{
+    width: 60px;
+    font-size: 1.2em;
+    padding: 10px 0;
+    text-align: center;
+    margin-right: 20px;
+    display: inline-block;
+    cursor: pointer;
+    border: rgb(204, 204, 0) solid 1px;
+    border-radius: 5px;
+    color: rgb(204, 204, 0);
+}
+
+#choose-stopovers::-moz-focus-inner {
+    border: 0;
+}
+
+#choose-stopovers:focus {
+    outline: none;
+}
+
+
+
