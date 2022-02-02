@@ -1,5 +1,4 @@
 import React, {createContext, useState} from 'react';
-// import {useEffect} from "react";
 import { useHistory } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import axios from "axios";

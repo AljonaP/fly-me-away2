@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './Footer.css';
 import {Link} from "react-router-dom";
 import InputFieldLabelName from "../InputFieldLabelName/InputFieldLabelName";
+import Button from "../Button/Button";
 
 function Footer() {
     const [name, setName] = useState("");
@@ -12,17 +13,15 @@ function Footer() {
     const [disabled, setDisabled] = useState(false);
 
     function disableButton() {
-        if (contactMessage.length < 20 && contactMessage.length > 300){
+        if (contactMessage.length < 20){
             setDisabled(true);
         }
     }
-
-    function sendForm() {
+    function sendForm(e) {
+        e.preventDefault()
         console.log(`Het bericht: "${contactMessage}" is succesvol verzonden.`);
         setSubmitted(true);
     }
-
-
 
     return (
         <div>
@@ -90,7 +89,7 @@ function Footer() {
 
                     <textarea
                         maxLength={messageLength}
-                        placeholder="Typ hier uw bericht, max 300 tekens"
+                        placeholder="Typ hier uw bericht, min 20 en max 300 tekens"
                         className={messageLength === 300 ? 'error-message' : ''}
                         value={contactMessage}
                         onChange={(e) => setContactMessage(e.target.value)}>
@@ -99,9 +98,9 @@ function Footer() {
 
                     </textarea>
 
-                    <button type="submit" onClick={sendForm} disabled={disableButton}>
+                    <Button type="submit" value="submit" disabled={!name && !email && {disableButton}} onClick={sendForm} >
                         Verzend
-                    </button>
+                    </Button>
                 </form>
 
             </footer>

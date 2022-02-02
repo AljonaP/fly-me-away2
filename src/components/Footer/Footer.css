@@ -80,10 +80,10 @@ footer button{
     color: #000000;
 }
 
-/*footer button:disabled {*/
-/*    background-color: #ededed;*/
-/*    color: gray;*/
-/*}*/
+footer button:disabled {
+    background-color: #ededed;
+    color: gray;
+}
 
 textarea {
     display: block;
@@ -120,8 +120,8 @@ a:visited {
 }
 
 
-@media scree nad (max-width: 576px) {
-    footer {
-        grid-template-columns:
-    }
-}
+/*@media scree and (max-width: 576px) {*/
+/*    footer {*/
+/*        grid-template-columns:*/
+/*    }*/
+/*}*/

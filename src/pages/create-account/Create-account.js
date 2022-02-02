@@ -3,7 +3,6 @@ import { useHistory, Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import InputFieldLabelName from "../../components/InputFieldLabelName/InputFieldLabelName";
 import './Create-account.css';
-
 import axios from "axios";
 
 
