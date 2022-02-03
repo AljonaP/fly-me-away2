@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './Home.css';
 import Button from "../../components/Button/Button";
 import InputFieldLabelName from "../../components/InputFieldLabelName/InputFieldLabelName";
@@ -8,14 +8,20 @@ import axios from "axios";
 import Amadeus from "amadeus";
 import {logDOM} from "@testing-library/react";
 import PassengerCounter from "../../components/PassengerCounter/PassengerCounter";
+import GetDate from '../../helpers/cutDate';
+import GetTime from '../../helpers/cutTime';
+import GetFlightDuration from '../../helpers/cutFlightDuration';
+import BackgroundImage from '../../assets/TropicsSeaPalm.jpg';
+import PlaneDeparture from '../../assets/plane-departure.svg';
+import PlaneArrival from '../../assets/plane-arrival.svg';
+
+
 
 
 function Home() {
     // const [loading, setLoading] = useState(true);
     const [ countriesFrom, setCountriesFrom] = useState('AMS')
     const [ countriesTo, setCountriesTo] = useState('AMS')
-    // const [destinationFrom, setDestinationFrom] = useState('');
-    // const [destinationTo, setDestinationTo] = useState('');
     const [departureDate, setDepartureDate] = useState(new Date().toISOString().split('T')[0]);
     const [departureDateFrom, setDepartureDateFrom] = useState('');
 
@@ -89,7 +95,6 @@ function Home() {
             clientId: `${apiKey}`,
             clientSecret: `${secret}`
         });
-
         console.log(passengerAdult, countriesFrom)
 
         amadeus.shopping.flightOffersSearch.get({
@@ -121,31 +126,34 @@ function Home() {
         setDepartureDate(e.target.value)
     }
 
-    // let daysInYear = 365;
+     // let daysInYear = 365;
     // let maxDateToBookTicket = today.setDate(today.getDate() + daysInYear);
 
     return (
         <div className="Homepage-body">
+            {/*<img src={BackgroundImage} className="background-img"/>*/}
 
             {searchResults.length > 0 ?
                 <>
                     <h1>Er zijn {searchResults.length} aanbiedingen gevonden</h1>
                     <div>
-                        <h2>Departure time</h2>
                         <ul>{searchResults.map((airticket) => {
                             return(
                                 <>
-                                <li>{airticket.id}</li>
-                                <p>{airticket.price.grandTotal}</p>
-                                <p>{airticket.price.currency}</p>
-                                <p>{airticket.itineraries[0].segments[0].departure.at}</p>
-                                <p>{airticket.itineraries[0].segments[0].departure.iataCode}</p>
-                                <p>{airticket.itineraries[0].segments[0].duration}</p>
-                                <p>{airticket.itineraries[0].segments[0].numberOfStops}</p>
-                                <p>{airticket.itineraries[0].segments[0].arrival.at}</p>
-                                <p>{airticket.itineraries[0].segments[0].arrival.iataCode}</p>
-
-
+                                    <div className="ticket-container">
+                                        <li>{airticket.id}</li>
+                                        <p>{GetDate(airticket.itineraries[0].segments[0].departure.at)}</p>
+                                        <p>{GetTime(airticket.itineraries[0].segments[0].departure.at)}</p>
+                                        <p>{airticket.itineraries[0].segments[0].departure.iataCode}</p>
+                                        <p>{GetFlightDuration(airticket.itineraries[0].duration)}</p>
+                                        <p>Tussenstop {(airticket.itineraries[0].segments.length-1)}</p>
+                                        <p>{GetDate(airticket.itineraries[0].segments[(airticket.itineraries[0].segments.length-1)].arrival.at)}</p>
+                                        <p>{GetTime(airticket.itineraries[0].segments[(airticket.itineraries[0].segments.length-1)].arrival.at)}</p>
+                                        <p>{airticket.itineraries[0].segments[(airticket.itineraries[0].segments.length-1)].arrival.iataCode}</p>
+                                        <p>Totale prijs voor<p>{airticket.travelerPricings.length} passagiers</p></p>
+                                        <p>{airticket.price.grandTotal}</p>
+                                        <p>{airticket.price.currency}</p>
+                                    </div>
                                 </>
                         )})}
                         </ul>
@@ -153,11 +161,11 @@ function Home() {
                 </>
                 :
                 <>
-
                     <form onSubmit={onFormSubmit} className="form-vluchten">
                         <h1 className="flights">Vluchten</h1>
 
                         <section>
+                            <img src={PlaneDeparture} alt="img-of-plane-departure"/>
                             <h4>Van</h4>
                             <select id="country" name="country" className="countries" onChange={getCountryFrom}>
                                 <option value="AMS">Amsterdam</option>
@@ -173,6 +181,7 @@ function Home() {
                             </select>
                         </section>
                         <section>
+                            <img src={PlaneArrival} alt="img-of-plane-arrival"/>
                             <h4>Naar</h4>
                             <select onChange={getCountryTo}>
                                 <option value="AMS">Amsterdam</option>
@@ -198,15 +207,9 @@ function Home() {
                                 // max={maxDateToBookTicket}
                             />
                         </section>
-                        <section>
+                        <section className="passenger-counter">
                             <h4>Passagiers</h4>
-                            <PassengerCounter type="button" disabled={passengerAdult === 0 && passengerAdult > 9} passengerQty={passengerAdult} setPassengerCounter={setPassengerAdult}/>
-                            {/*<PassengerType name="Volwassen" stateKeyName={passengerAdult} stateSetterName={setPassengerAdult}*/}
-                            {/*               disabled={passengerAdult === 0}/>*/}
-                            {/*<PassengerType name="Kinderen" description="_van 2 tot 17 jaar" stateKeyName={passengerChild}*/}
-                            {/*               stateSetterName={setPassengerChild} disabled={passengerChild === 0}/>*/}
-                            {/*<PassengerType name="Baby's" description="_jonger dan 2 jaar" stateKeyName={passengerBaby}*/}
-                            {/*               stateSetterName={setPassengerBaby} disabled={passengerBaby === 0}/>*/}
+                            <PassengerCounter type="button" disabled={passengerAdult === 0} passengerQty={passengerAdult} setPassengerCounter={setPassengerAdult}/>
                         </section>
                         {/*<section>*/}
                         {/*    <h4>Klasse</h4>*/}

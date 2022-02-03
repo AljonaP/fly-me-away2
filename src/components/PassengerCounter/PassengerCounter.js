@@ -4,7 +4,7 @@ import './PassengerCounter.css';
 function PassengerCounter ({type, disabled, passengerQty, setPassengerCounter}) {
 
     return (
-        <article className="passengers-quantity">
+        <article className="counter-buttons">
             <button
                 type={type}
                 name='Aftellen'

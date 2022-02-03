@@ -12,6 +12,8 @@ function Footer() {
     const [submitted, setSubmitted] = useState(false);
     const [disabled, setDisabled] = useState(false);
 
+
+
     function disableButton() {
         if (contactMessage.length < 20){
             setDisabled(true);
@@ -98,9 +100,8 @@ function Footer() {
 
                     </textarea>
 
-                    <Button type="submit" value="submit" disabled={!name && !email && {disableButton}} onClick={sendForm} >
-                        Verzend
-                    </Button>
+                    <Button type="submit" value="submit" name="Verzend" disabled={!name || !email || {disableButton}} onClick={sendForm}/>
+
                 </form>
 
             </footer>

@@ -77,12 +77,18 @@ button:focus {
 footer button{
     margin-top: 4px;
     background-color: #DAEBEC;
+    border: none;
+    width: 72px;
+    height: 16px;
+    font-family: Patua One, sans-serif;
+    font-size: 0.625em;
     color: #000000;
+
 }
 
 footer button:disabled {
     background-color: #ededed;
-    color: gray;
+    color: #808080;
 }
 
 textarea {

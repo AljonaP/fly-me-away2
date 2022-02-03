@@ -35,10 +35,10 @@ function App() {
                         <LoginPage/>
                     </Route>
 
-                    <Route path="/zoekresultaten">
-                        <SearchResultsPage/>
-                        {/*<SearchResultsPage isAuth={isAuth} toggleAuth={toggleIsAuth}/>*/}
-                    </Route>
+                    {/*<Route path="/zoekresultaten">*/}
+                    {/*    <SearchResultsPage/>*/}
+                    {/*    /!*<SearchResultsPage isAuth={isAuth} toggleAuth={toggleIsAuth}/>*!/*/}
+                    {/*</Route>*/}
 
                     <Route exact path="/algemene-voorwaarden">
                         <GeneralConditionsPage/>
