@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
@@ -9,17 +9,39 @@ function ContextAuthorizationProvider({children}) {
     const [isAuth, toggleIsAuth] = useState({
         isAuth: false,
         user: null,
+        status: 'pending',
     });
     const history = useHistory();
+
+    //Andrew
+    useEffect(() => {
+
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            const decode = jwt_decode(token);
+            //eslint-disable-next-line
+            getUserData(decode.sub, token);
+        } else {
+            toggleIsAuth({
+                isAuth: false,
+                user: null,
+                status: 'done',
+            });
+        } // eslint-disable-next-line
+    }, []);
+    //Andre finish
 
     function login(JWT){
         localStorage.setItem('token', JWT);
         // console.log("gebruiker is ingelogd");
         const decode = jwt_decode(JWT);
         console.log(decode.sub);
-        getUserData(decode.sub,JWT, '/');
+        getUserData(decode.sub,JWT);
         history.push('/');
     }
+
+
 
     function logout(){
         localStorage.clear();
@@ -47,7 +69,7 @@ function ContextAuthorizationProvider({children}) {
     //     }
     // }, []);
 
-    async function getUserData(id, token, redirect){
+    async function getUserData(id, token){
         try {
             const result = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user`,
                 {headers: {
@@ -62,16 +84,17 @@ function ContextAuthorizationProvider({children}) {
                     username: result.data.username,
                     id: result.data.id,
                 },
-                status: 'done'
+                status: 'done',
             });
-            history.push(redirect);
+            // history.push(redirect);
         } catch (e) {
             console.error(e);
-            console.log(e.response);
+            // console.log(e.response);
         }
     }
 
-    const ContextData = {
+
+    const contextData = {
         isAuth: isAuth.isAuth,
         user: isAuth.user,
         login: login,
@@ -79,9 +102,9 @@ function ContextAuthorizationProvider({children}) {
      }
 
     return (
-        <AuthContext.Provider value={{ContextData}}>
-            {/*{isAuth.status === 'done' ? children : <p>Loading...</p>}*/}
-            {children}
+        <AuthContext.Provider value={contextData}>
+            {isAuth.status === 'done' ? children : <p>Loading...</p>}
+            {/*{children}*/}
         </AuthContext.Provider>
     );
 }

@@ -4,7 +4,7 @@ import './InputFieldLabelName.css';
 function InputFieldLabelName({ type, id, name, className, value, placeholder, name2, onChange, checked, min }) {
     return (
         <label htmlFor={id}>
-            {name}
+            <h4>{name}</h4>
             <input
                 type={type}
                 id={id}

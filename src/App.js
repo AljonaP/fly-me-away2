@@ -15,6 +15,7 @@ import SearchResultsPage from './pages/search-results/Search-results';
 import TopMenu from './components/TopMenu/TopMenu';
 import Footer from "./components/Footer/Footer";
 
+
 function App() {
     const {isAuth} = useContext(AuthContext);
     return (

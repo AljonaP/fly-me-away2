@@ -112,6 +112,17 @@ input,button {
     padding-left: 30px;
 }
 
+.contact-form input {
+    width: 300px;
+    height: 20px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
+
+
 a:link {
     color: #507AAB;
 }
@@ -124,10 +135,3 @@ a:hover {
 a:visited {
     color: #507AAB;
 }
-
-
-/*@media scree and (max-width: 576px) {*/
-/*    footer {*/
-/*        grid-template-columns:*/
-/*    }*/
-/*}*/

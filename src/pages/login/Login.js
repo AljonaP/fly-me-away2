@@ -29,11 +29,12 @@ function Login(){
             console.log(result.data) //komt de accesToken uit
             login(result.data.accessToken); //geven we de accesToken aan de login
             console.log(result.data.accessToken);
-            history.push("/");
+            // history.push("/");
         } catch (e) {
             console.error(e);
             console.log(e.response);
         }
+        history.push("/");
     }
 
     return (

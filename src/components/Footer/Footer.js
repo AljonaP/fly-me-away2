@@ -12,13 +12,12 @@ function Footer() {
     const [submitted, setSubmitted] = useState(false);
     const [disabled, setDisabled] = useState(false);
 
-
-
     function disableButton() {
         if (contactMessage.length < 20){
             setDisabled(true);
         }
     }
+
     function sendForm(e) {
         e.preventDefault()
         console.log(`Het bericht: "${contactMessage}" is succesvol verzonden.`);
@@ -73,7 +72,7 @@ function Footer() {
                 </div>
                 {/* Voor styling zie: https://github.com/hogeschoolnovi/frontend-react-fruit-perfection/blob/stap-6/src/App.css*/}
                 {/* Voor styling zie 3.4 React */}
-                <form className="contact-form">Contact ons
+                <form onSubmit={sendForm} className="contact-form">Contact ons
                     <br/>
                     <InputFieldLabelName
                         type="text"
@@ -91,16 +90,15 @@ function Footer() {
 
                     <textarea
                         maxLength={messageLength}
+
                         placeholder="Typ hier uw bericht, min 20 en max 300 tekens"
                         className={messageLength === 300 ? 'error-message' : ''}
                         value={contactMessage}
                         onChange={(e) => setContactMessage(e.target.value)}>
-
-                        {/*{contactMessage.length > 300 && <p className="error-message">Dit bericht is te lang!</p>}*/}
-
                     </textarea>
+                    {contactMessage.length >= 300 && <p className="error-message">Uw bericht is te lang! Maak uw bericht korter met max 300 tekens</p>}
 
-                    <Button type="submit" value="submit" name="Verzend" disabled={!name || !email || {disableButton}} onClick={sendForm}/>
+                    <Button type="submit" value="submit" name="Verzend" disabled={!name || !email || contactMessage.length < 20}/>
 
                 </form>
 
