@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Paprika&family=Patua+One&display=swap');
+
+h1 {
+    align-items: center;
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    text-indent: 13px;
+    margin-right: 15px;
+}
+
+.go-back-button {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    padding: 4px;
+    align-self: flex-start;
+    font-family: 'Patua One', cursive;
+    background-color: #507AAB;
+    color: #DAEBEC;
+    border: none;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+.go-back-button:hover {
+    color: white;
+    font-family:Patua One, sans-serif;
+    font-size: 25px;
+    box-shadow: 2px 2px #595959;
+}
+
+
+

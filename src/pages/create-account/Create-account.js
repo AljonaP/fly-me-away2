@@ -57,17 +57,17 @@ function CreateAccount() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}/>
                 <InputFieldLabelName
-                    type="text"
+                    type="password"
                     id="password"
                     name="Wachtwoord"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}/>
-               <Button
+                <Button
                     type="submit"
                     name="Submit"
                     className="send-button"/>
             </form>
-            <p>Heb je al een account? Je kunt je <Link to="/inloggen">hier</Link> aanmelden.</p>
+            <p className="if-registered-or-not-registered">Heb je al een account? Je kunt je <Link to="/inloggen">hier</Link> aanmelden.</p>
             </div>
 
         </>

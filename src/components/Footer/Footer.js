@@ -12,11 +12,11 @@ function Footer() {
     const [submitted, setSubmitted] = useState(false);
     const [disabled, setDisabled] = useState(false);
 
-    function disableButton() {
-        if (contactMessage.length < 20){
-            setDisabled(true);
-        }
-    }
+    // function disableButton() {
+    //     if (contactMessage.length < 20){
+    //         setDisabled(true);
+    //     }
+    // }
 
     function sendForm(e) {
         e.preventDefault()

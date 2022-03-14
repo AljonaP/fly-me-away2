@@ -1,34 +1,25 @@
-/*.form-create-account {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    background-color: #faeab3;*/
-/*    padding: 32px;*/
-/*    border-color: red;*/
-/*    max-width: 300px;*/
-/*    border-radius: 4px;*/
-/*    margin: 100px;*/
-/*}*/
-
 @import url('https://fonts.googleapis.com/css2?family=Paprika&family=Patua+One&display=swap');
 
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .form-create-account-login {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-content: center;
+    align-items: center;
     text-align: center;
-
     max-width: 745px;
     padding: 8px 16px;
     margin: 8px;
     border: 1px solid black;
-
     font-family: Patua One, sans-serif;
     font-size: 1.25em;
     background-color: #DAEBEC;
 }
-
 
 h1 {
     text-decoration: underline;
@@ -36,7 +27,7 @@ h1 {
     font-size: 3.75em;
 }
 
-input[type=text] {
+input[type=text]. input[type=password] {
     padding:5px;
     border:2px solid #ccc;
     -webkit-border-radius: 5px;
@@ -44,18 +35,38 @@ input[type=text] {
     margin: 10px;
 }
 
-input[type=text]:focus {
-    border-color:#333;
+input:focus {
+    border: solid 2px #1b448c;
 }
 
-input[type=submit] {
-    padding:5px 15px;
-    background:#ccc;
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 3px;
-    border-radius: 5px;
+input:hover {
+    border: solid 2px #507AAB;
 }
+
+.send-button {
+    width: 388px;
+    height: 104px;
+    color: #000000;
+    background-color: #2DB7C1;
+    font-family: Patua One, sans-serif;
+    font-size: 2.5em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.send-button:hover {
+    border: solid 3px #1b448c;
+    border-radius: 3px;
+    color: #DAEBEC;
+}
+
+.if-registered-or-not-registered {
+    font-family: Patua One, sans-serif;
+    font-size: 1em;
+    margin-right: 140px;
+}
+
+
 
 
 

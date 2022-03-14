@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Mohave&family=Rubik:wght@300;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Mohave&family=Paprika&family=Rubik:wght@300;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paprika&family=Patua+One&display=swap');
 
 nav {
     background-color: #507AAB;
-
     display: flex;
     padding: 0 32px;
     align-items: center;
@@ -24,17 +22,6 @@ nav {
     align-items: center;
     padding-left: 20px;
 }
-.button-topmenu:hover {
-    background-color: #DAEBEC;
-    border: 2px outset #d9d9d9;
-    color: #507AAB;
-    border-radius: 3px;
-}
-
-.button-topmenu:hover {
-    box-shadow: 2px 2px #595959;
-    margin: -5px;
-}
 
 .button-topmenu {
     background-color: #507AAB;
@@ -43,7 +30,20 @@ nav {
     font-size: 28px;
     margin: 4px;
     border: none;
+}
 
+.button-topmenu:hover {
+    background-color: #DAEBEC;
+    border: 2px outset #d9d9d9;
+    box-shadow: 2px 2px #595959;
+    margin: 2px;
+    color: #507AAB;
+    border-radius: 3px;
+}
+
+Link:hover, Link:active {
+    border: 2px solid white;
+    margin: -2px;
 }
 
 

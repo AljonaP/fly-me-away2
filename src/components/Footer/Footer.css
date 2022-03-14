@@ -1,25 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Paprika&family=Patua+One&display=swap');
-/*POKEMON*/
-/*footer {*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    align-items: center;*/
-/*    justify-content: space-around;*/
-
-/*}*/
-
-/*ALJONA footer {*/
-/*display: flex;*/
-/*justify-content: space-between;*/
-/*background-color: #F0DDB4;*/
-/*height: 173px;*/
-/*width: 100%;*/
-/*font-size: 12px;*/
-/*font-family: Patua One, sans-serif;*/
-/*bottom: 0;*/
-/*position: absolute;*/
-/*}*/
-
 
 footer {
     display: grid;

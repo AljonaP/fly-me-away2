@@ -1,15 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useHistory} from "react-router-dom";
 import Button from "../../components/Button/Button";
+import './Privacy-policy.css';
+
 
 function PrivacyPolicy() {
     let history = useHistory();
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    });
+
     return (
         <div>
             <Button
                 type="button"
                 name="Ga terug naar de vorige pagina"
-                onClick={()=> history.goBack()}
+                className="go-back-button"
+                onClick={() => history.goBack()}
             />
             <h1>PRIVACYBELEID</h1>
             <ol>
@@ -117,6 +125,12 @@ function PrivacyPolicy() {
                     malesuada convallis eros at vulputate.
                 </li>
             </ol>
+            <Button
+                type="button"
+                name="Ga terug naar de vorige pagina"
+                className="go-back-button"
+                onClick={() => history.goBack()}
+            />
         </div>
     );
 }
