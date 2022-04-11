@@ -1,8 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router} from 'react-router-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import "./index.css";
+import App from"./App";
+import ReactDOM from "react-dom";
+import {BrowserRouter as Router} from "react-router-dom";
+
+
 import ContextAuthorizationProvider from "./context/ContextAuthorization/ContextAuthorization";
 
 ReactDOM.render(
@@ -13,7 +15,7 @@ ReactDOM.render(
             </ContextAuthorizationProvider>
         </Router>
     </React.StrictMode>,
-  document.getElementById('root')
+    document.getElementById("root")
 );
 
 

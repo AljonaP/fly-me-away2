@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Paprika&family=Patua+One&display=swap');
 
+.term-conditions {
+    font-family: Patua One, sans-serif;
+}
+
 h1 {
+    font-family: Patua One, sans-serif;
     align-items: center;
+    font-size: 1.5em;
 }
 
 ol {
@@ -9,6 +15,12 @@ ol {
     flex-direction: column;
     text-align: left;
     text-indent: 13px;
+}
+
+li {
+    font-family: Patua One, sans-serif;
+    font-size: 0.75em;
+    margin-bottom: 20px;
 }
 
 .go-back-button {
@@ -28,7 +40,7 @@ ol {
 }
 
 .go-back-button:hover {
-    color: white;
+    color: #ffffff;
     font-family:Patua One, sans-serif;
     font-size: 25px;
     box-shadow: 2px 2px #595959;

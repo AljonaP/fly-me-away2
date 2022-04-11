@@ -42,7 +42,7 @@ nav {
 }
 
 Link:hover, Link:active {
-    border: 2px solid white;
+    border: 2px solid #ffffff;
     margin: -2px;
 }
 

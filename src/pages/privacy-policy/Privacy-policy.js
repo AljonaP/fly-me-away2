@@ -1,18 +1,13 @@
-import React, {useEffect} from 'react';
+import React from "react";
+import "./Privacy-policy.css";
 import {useHistory} from "react-router-dom";
 import Button from "../../components/Button/Button";
-import './Privacy-policy.css';
-
 
 function PrivacyPolicy() {
     let history = useHistory();
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    });
-
-    return (
-        <div>
+     return (
+        <div className="terms-conditions">
             <Button
                 type="button"
                 name="Ga terug naar de vorige pagina"

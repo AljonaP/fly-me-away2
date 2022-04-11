@@ -1,7 +1,7 @@
 import React from 'react';
-import './InputFieldLabelName.css';
+import './InputField.css';
 
-function InputFieldLabelName({ type, id, name, className, value, placeholder, name2, onChange, checked, min }) {
+function InputField({name, type, id, className, value, placeholder, onChange, min}) {
     return (
         <label htmlFor={id}>
             <h4>{name}</h4>
@@ -12,14 +12,11 @@ function InputFieldLabelName({ type, id, name, className, value, placeholder, na
                 name={name}
                 value={value}
                 placeholder={placeholder}
-                checked={checked}
                 onChange={onChange}
                 min={min}
             />
-            {name2}
         </label>
-
     );
 }
 
-export default InputFieldLabelName;
+export default InputField;

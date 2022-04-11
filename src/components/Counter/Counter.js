@@ -1,7 +1,7 @@
 import React from "react";
-import './PassengerCounter.css';
+import './Counter.css';
 
-function PassengerCounter ({type, disabled, passengerQty, setPassengerCounter}) {
+function Counter ({type, disabled, passengerQty, setPassengerCounter}) {
 
     return (
         <article className="counter-buttons">
@@ -27,4 +27,4 @@ function PassengerCounter ({type, disabled, passengerQty, setPassengerCounter}) 
 
 
 
-export default PassengerCounter;
+export default Counter;

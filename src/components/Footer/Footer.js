@@ -1,22 +1,14 @@
 import React, {useState} from 'react';
 import './Footer.css';
-import {Link} from "react-router-dom";
-import InputFieldLabelName from "../InputFieldLabelName/InputFieldLabelName";
-import Button from "../Button/Button";
+import {Link} from 'react-router-dom';
+import InputField from '../InputField/InputField';
+import Button from '../../components/Button/Button';
 
 function Footer() {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [contactMessage, setContactMessage] = useState('');
-    const [messageLength, setMessageLength ] = useState("300")
     const [submitted, setSubmitted] = useState(false);
-    const [disabled, setDisabled] = useState(false);
-
-    // function disableButton() {
-    //     if (contactMessage.length < 20){
-    //         setDisabled(true);
-    //     }
-    // }
 
     function sendForm(e) {
         e.preventDefault()
@@ -39,8 +31,6 @@ function Footer() {
                         <br/>
                         <a href="https://goo.gl/maps/M8gDX6SorVqZ71KQ7">Vind ons op Google-maps!</a>
                     </div>
-
-
                     <br/>
                     <div>
                         Office tel. <a href="tel:+31172222222">+31 (0)172 - 22 22 22</a>
@@ -53,10 +43,10 @@ function Footer() {
                 <div id="terms-conditions">
                     © FlyMeAway B.V. 2021
                     <br/>
-                    FlyWeAway is gemaakt voor de echte reizigers! Bekijk en vergelijk de beste deals al nú en vlieg naar jouw favoriete bestemming.
+                    FlyMeAway is gemaakt voor de echte reizigers! Bekijk en vergelijk de beste deals al nú en vlieg naar
+                    jouw favoriete bestemming.
                     <br/>
                     <br/>
-
                     Op alle onze deals zijn de&nbsp;
                     <Link to="/algemene-voorwaarden">
                         <span>Algemene Voorwaarden</span>
@@ -70,38 +60,40 @@ function Footer() {
                     <br/>
                     De getoonde prijzen zijn inclusief BTW, maar kunnen variëren bij de vliegticketaanbieder.
                 </div>
-                {/* Voor styling zie: https://github.com/hogeschoolnovi/frontend-react-fruit-perfection/blob/stap-6/src/App.css*/}
-                {/* Voor styling zie 3.4 React */}
                 <form onSubmit={sendForm} className="contact-form">Contact ons
                     <br/>
-                    <InputFieldLabelName
+                    <InputField
                         type="text"
                         id="name"
                         value={name}
                         placeholder="Naam"
-                        onChange={(e) => setName(e.target.value)}/>
-
-                    <InputFieldLabelName
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                    <InputField
                         type="email"
-                        id="email"
+                        id="email-сontact-form"
+                        className="footer-contact-form-email"
                         value={email}
                         placeholder="Email"
-                        onChange={(e) => setEmail(e.target.value)}/>
-
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
                     <textarea
-                        maxLength={messageLength}
-
                         placeholder="Typ hier uw bericht, min 20 en max 300 tekens"
-                        className={messageLength === 300 ? 'error-message' : ''}
+                        className={contactMessage === 300 ? 'error-message' : ''}
                         value={contactMessage}
                         onChange={(e) => setContactMessage(e.target.value)}>
                     </textarea>
-                    {contactMessage.length >= 300 && <p className="error-message">Uw bericht is te lang! Maak uw bericht korter met max 300 tekens</p>}
-
-                    <Button type="submit" value="submit" name="Verzend" disabled={!name || !email || contactMessage.length < 20}/>
-
+                    {contactMessage.length >= 300 &&
+                    <p className="error-message">Uw bericht is te lang! Maak uw bericht korter met max 300 tekens</p>}
+                    {contactMessage.length < 20 &&
+                    <p className="length-of-message">Uw bericht moet minimaal 20 tekens zijn</p>}
+                    <Button
+                        type="submit"
+                        value="submit"
+                        name="Verzend"
+                        disabled={!name || !email || contactMessage.length < 20 || contactMessage.length >= 300}
+                    />
                 </form>
-
             </footer>
         </div>
     );

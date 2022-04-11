@@ -1,15 +1,19 @@
-import React, {useContext} from 'react';
-import { useHistory, Link } from 'react-router-dom';
-import './TopMenu.css';
-import Button from "../Button/Button";
-import language from '../../assets/flagNL.png';
-import logo from '../../assets/logoFlyMeAway.png';
+import React, {useContext} from "react";
+import "./TopMenu.css";
+import {useHistory, Link} from "react-router-dom";
+import Button from "../../components/Button/Button";
+import language from "../../assets/flagNL.png";
+import logo from "../../assets/logoFlyMeAway.png";
 import {AuthContext} from "../../context/ContextAuthorization/ContextAuthorization";
-
 
 function TopMenu() {
     const {logout, isAuth} = useContext(AuthContext);
     const history = useHistory();
+
+    function signOut(){
+        logout();
+        history.push("/");
+    }
 
     return (
         <nav>
@@ -26,7 +30,7 @@ function TopMenu() {
                 <Button type="button"
                         name="Uitloggen"
                         className="button-topmenu"
-                        onClick={logout}
+                        onClick={signOut}
                 />
                 :
                 <div>
@@ -34,13 +38,13 @@ function TopMenu() {
                         type="button"
                         name="Registreren"
                         className="button-topmenu"
-                        onClick={() => history.push('/account-aanmaken')}
+                        onClick={() => history.push("/account-aanmaken")}
                     />
                     <Button
                         type="button"
                         name="Aanmelden"
                         className="button-topmenu"
-                        onClick={() => history.push('/inloggen')}
+                        onClick={() => history.push("/inloggen")}
                     />
                 </div>
             }

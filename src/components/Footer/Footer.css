@@ -9,31 +9,39 @@ footer {
     height: 173px;
     background-color: #F0DDB4;
     width: 100%;
-    /*position: fixed;*/
     position: static;
     bottom: 0;
-
     grid-template-columns: 1fr 1.5fr 1fr;
     grid-template-areas:
     "a a a";
 }
 
-footer input[type=text] {
-    padding: 2px 4px;
-    margin: 5px 0 5px;
-    width: 70%;
-    font-size: 16px;
-    outline: none;
-    border-color: grey;
+.contact-form,address {
+    text-align: left;
+    padding-left: 30px;
 }
 
-footer input[type=email] {
+#terms-conditions {
+    text-align: center;
+}
+
+a:link, a:visited {
+    color: #507AAB;
+}
+
+a:hover {
+    color:#1EFBD3;
+}
+
+footer input[type=text], #email-сontact-form {
     padding: 2px 4px;
-    margin: 5px 0 5px;
+    margin: 2px 0 2px;
     width: 70%;
     font-size: 16px;
     outline: none;
-    border-color: grey;
+    border:2px solid #CCCCCC;
+    -webkit-border-radius: 5px;
+    border-radius: 3px;
 }
 
 footer input[type=text].input-error {
@@ -48,10 +56,27 @@ input[type=text]:focus,
 input[type=email]:focus,
 textarea:focus,
 button:focus {
-    /*outline: none;*/
     border-color: #000000;
 }
 
+textarea {
+    display: block;
+    font-size: 16px;
+    margin-top: 5px;
+    height: 50px;
+    width: 88%;
+    border:2px solid #CCCCCC;
+    -webkit-border-radius: 5px;
+    border-radius: 3px;
+}
+
+textarea:focus {
+    border: solid 2px #1b448c;
+}
+
+input,button {
+    border: 1px solid #808080;
+}
 
 footer button{
     margin-top: 4px;
@@ -62,7 +87,6 @@ footer button{
     font-family: Patua One, sans-serif;
     font-size: 0.625em;
     color: #000000;
-
 }
 
 footer button:disabled {
@@ -70,25 +94,14 @@ footer button:disabled {
     color: #808080;
 }
 
-textarea {
-    display: block;
-    font-size: 16px;
-    margin-top: 5px;
-    height: 61px;
-    width: 88%;
+input[type=text]:hover,
+.footer-contact-form-email:hover,
+textarea:hover, #email-сontact-form:hover {
+    border: solid 2px #507AAB;
 }
 
-input,button {
-    border: 1px solid #808080;
-}
-
-#terms-conditions {
-    text-align: center;
-}
-
-.contact-form,address {
-    text-align: left;
-    padding-left: 30px;
+#email-сontact-form:hover {
+    border: solid 2px #507AAB;
 }
 
 .contact-form input {
@@ -97,20 +110,15 @@ input,button {
 }
 
 .error-message {
-    color: red;
+    color: #FF0000;
     font-size: 14px;
+    margin: -3px 0 -3px;
+}
+
+.length-of-message {
+    color: #000000;
+    font-size: 14px;
+    margin: -3px 0 -3px;
 }
 
 
-a:link {
-    color: #507AAB;
-}
-
-a:hover {
-    color:#1EFBD3;
-
-}
-
-a:visited {
-    color: #507AAB;
-}

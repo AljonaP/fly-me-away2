@@ -1,19 +1,22 @@
-import React, {useState, useContext} from 'react';
-import {Link, useHistory} from "react-router-dom";
-
-import axios from "axios";
+import React, {useState, useContext, useEffect} from "react";
+import "./Login.css";
+import {useHistory, Link} from "react-router-dom";
 import Button from "../../components/Button/Button";
-import InputFieldLabelName from "../../components/InputFieldLabelName/InputFieldLabelName";
-import './Login.css';
+import InputField from "../../components/InputField/InputField";
 import {AuthContext} from "../../context/ContextAuthorization/ContextAuthorization";
-
+import axios from "axios";
 
 function Login(){
-    const { login } = useContext(AuthContext);
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    // const [clicked, toggleClicked] = useState(false);
+    const {login, isAuth} = useContext(AuthContext);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     let history = useHistory();
+
+    useEffect(() => {
+        if (isAuth === true){
+            history.push("/gebruiker-profiel");
+        }
+    }, [isAuth]);
 
     async function handleClick(e) {
         e.preventDefault();
@@ -26,41 +29,45 @@ function Login(){
                 username: username,
                 password: password,
             });
-            console.log(result.data) //komt de accesToken uit
-            login(result.data.accessToken); //geven we de accesToken aan de login
+            console.log(result.data)
+            login(result.data.accessToken);
             console.log(result.data.accessToken);
         } catch (e) {
             console.error(e);
             console.log(e.response);
         }
-        history.push("/");
     }
 
     return (
         <>
-            <div className="form-container">
-                <form onSubmit={handleClick} className="form-create-account-login">
-                    <h1>Aanmelden</h1>
-                    <InputFieldLabelName
-                        type="text"
-                        id="username"
-                        name="Username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}/>
-
-                    <InputFieldLabelName
-                        type="password"
-                        id="password"
-                        name="Wachtwoord"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}/>
-                    <Button
-                        name="Submit"
-                        type="submit"
-                        className="send-button"
-                    />
-                </form>
-                <p className="if-registered-or-not-registered">Heb je nog geen account? <Link to="/account-aanmaken">Registreer</Link> je dan eerst.</p>
+            <div className="page-login">
+                <div className="form-container">
+                    <form onSubmit={handleClick} className="form-create-account-login">
+                        <h1>Aanmelden</h1>
+                        <InputField
+                            name="Username"
+                            type="text"
+                            id="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                        <InputField
+                            name="Wachtwoord"
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <Button
+                            name="Submit"
+                            type="submit"
+                            className="send-button"
+                        />
+                    </form>
+                    <p className="if-registered-or-not-registered">Heb je nog geen account?&nbsp;
+                        <Link to="/account-aanmaken">Registreer</Link>&nbsp;je dan eerst.
+                    </p>
+                </div>
             </div>
         </>
     );
