@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+﻿#Opdrachtbeschrijving ## Inleiding 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+FlyMeAway is een bedrijf, die zich specialiseert in het zoeken naar vliegtickets zonder onnodige extra’s zoals hotels en autohuur. 
 
-## Available Scripts
+Met de webapplicatie met dezelfde naam (FlyMeAway) kunnen de gepassioneerde reizigers hun dromen realiseren met het zoeken naar de beste deals en aanbiedingen. Aangemelde gebruikers krijgen toegang tot hun persoonlijke profielpagina én kunnen gebruik maken van de persoonlijke kortingscode voor op dat moment specifieke bestemming(en). Ben je klaar voor een onvergetelijke reis? 
 
-In the project directory, you can run:
 
-### `npm start`
+## De applicatie starten 
+- Om applicatie te kunnen starten moet je beschikken over een IDE zoals Webstorm, Eclipse of een andere IDE; 
+- Clone code van GitHub https://github.com/AljonaP/fly-me-away2 op jouw locale machine óf open het project met de bijgeleverde eindopdracht project-map ‘FlyMeAway’. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## API-key installatie 
+Voor het zoeken van de vliegtickets gebruik de API key en Secret code van de API Amadeus. Beide zijn te vinden in het bestand ‘API keys, links naar Figma en GitHub.pdf’. 
 
-### `npm test`
+De Api key moet worden ingevoerd in: 
+../src/pages/Home.js regel 23 const apiKey = "vulInHierDeAPICode" 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+De Secret code moet worden ingevoerd in: 
+../src/pages/Home.js regel 24 const secret= "vulInHierDeSecretCode" 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installatie van benodigde modules 
+- Installeer de node\_modules door het volgende commando in de terminal te runnen: 
+`           ``npm install` 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Installeer de dependency react router DOM versie 5.1.2 met behulp van de volgende commando:  
+‘npm install react-router-dom@5.1.2’ 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Installeer de dependency axios: 
+‘npm install axios’ 
 
-### `npm run eject`
+- Voor de autorisatie binnen de webapplicatie moet een token worden gedecodeerd met behulp van jwt-decode. Installeer jwt-decode: 
+‘npm install jwt-decode’ 
+- 
+- Instaleer node module van de API Amadeus:  
+‘npm i amadeus’ 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Starten webapplicatie 
+- Wanneer dit klaar is, kun je de applicatie starten met behulp van: ‘npm start’ 
+- Open http://localhost:3000 om de pagina in de browser te bekijken. 
+- Om de beste CSS prestatie te ervaren gebruik de schermgrootte 1400x1050px. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Gebruikersregistratie 
+1. Klik rechts boven in het top-menu op de knop “Registreren”; 
+2. Vul in de volgende input-fields: 
+   * Username (minimaal 6 tekens); 
+   * Emailadres; 
+   * Wachtwoord (minimaal 6 tekens). 
+3. Klik op de knop ‘Submit’. De nieuwe gebruiker wordt automatisch doorverwezen naar de aanmeldingspagina. 
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Aanmelden van de gebruiker 
+1. Vul in de volgende input-fields om je aan te melden: 
+   * Username; 
+   * Wachtwoord. 
+2. Klik op de knop ‘Submit’. De aangemelde gebruiker wordt automatisch doorverwezen naar zijn persoonlijke Profielpagina. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Gebruikersprofiel pagina 
+Op de Profielpagina is persoonlijke informatie te vinden zoals Username en emailadres van de gebruiker.  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Daarnaast vindt de gebruiker gepersonaliseerde kortingscode voor de lopende aanbiedingen. 
 
-### Analyzing the Bundle Size
+Na het aanmelden verdwijnen de knopen ‘Registreren’ en ‘Aanmelden’ in het top-menu. In plaats daarvan verschijnt de knop ‘Uitloggen’. De gebruiker kan zich uitloggen via déze knop indien gewenst. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Zoeken naar de vliegtickets 
+Op de Home-pagina kan de gebruiker vliegtickets zoeken: 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Kies de stad van vertrek en een bestemming; 
+2. Kies de reisdatum; 
+3. Kies het aantal van passagiers (maximum 8!); 
+4. Klik op de knop ‘Submit’. De gebruiker wordt naar de zoekresultaten doorverwezen. 
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Filteren en sorteren van de resultaten 
+1. De resultaten kunnen worden gesorteerd op prijs: 
+   * Duurste eerst; 
+   * Goedkoopste eerst. 
+2. De resultaten kunnen worden verfijnd op het aantal Tussenstops: 
+- Kies in het keuze-menu het gewenste aantal Tussenstops van de gevonden aanbiedingen; 
+- Om alle resultaten weer te bekijken, kies ‘Alle vluchten’. 
