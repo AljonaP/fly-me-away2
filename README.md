@@ -21,8 +21,8 @@ De Secret code moet worden ingevoerd in:
 
 
 ## Installatie van benodigde modules 
-- Installeer de node\_modules door het volgende commando in de terminal te runnen: 
-`           ``npm install` 
+- Installeer de node\_modules door het volgende commando in de terminal te runnen:
+‘npm install‘
 
 - Installeer de dependency react router DOM versie 5.1.2 met behulp van de volgende commando:  
 ‘npm install react-router-dom@5.1.2’ 
@@ -31,8 +31,8 @@ De Secret code moet worden ingevoerd in:
 ‘npm install axios’ 
 
 - Voor de autorisatie binnen de webapplicatie moet een token worden gedecodeerd met behulp van jwt-decode. Installeer jwt-decode: 
-‘npm install jwt-decode’ 
-- 
+‘npm install jwt-decode’
+
 - Instaleer node module van de API Amadeus:  
 ‘npm i amadeus’ 
 
